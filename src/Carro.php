@@ -1,6 +1,6 @@
 <?php
 
-require_once "src/Carro.php";
+require_once "src/Veiculo.php";
 
 class Carro extends Veiculo
 {
