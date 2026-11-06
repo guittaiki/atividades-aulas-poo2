@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Veiculo.php';
+require_once "src/Moto.php";
 
 class Moto extends Veiculo
 {

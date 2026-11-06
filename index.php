@@ -1,6 +1,9 @@
 <?php
-// Carregue as classes usando require_once.
-// Crie um objeto Carro e um objeto Moto com os dados indicados no enunciado.
+require_once "src/Carro.php";
+require_once "src/Moto.php";
+
+$carro = new Carro('Toyota', 'Corolla Cross', 2026, 4);
+$moto = new Moto('BMW', 'S1000RR', 2027, 1000);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -8,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de veículos</title>
-    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
     <header class="cabecalho">
@@ -22,37 +25,38 @@
                 <span class="tipo">Carro</span>
                 
                 <h2>
-                    <!-- Exiba marca e modelo do carro -->
+                    <?= ($carro->getModelo()) ?>
                 </h2>
                 
                 <p class="detalhe">
-                    Ano: <!-- Exiba o ano -->
+                    Ano: <?= $carro->getAno() ?>
                 </p>
                 
                 <p class="detalhe">
-                    Portas: <!-- Exiba a quantidade de portas -->
+                    Portas: <?= $carro->getQuantidadePortas() ?>
                 </p>
                 
                 <p class="preco">
-                    Diária: R$ <!-- Exiba a diária formatada com duas casas decimais -->
+                    Diária: R$ <?= number_format($carro->calcularDiaria(), 2, ',', '.') ?>
                 </p>
             </article>
 
             <article class="cartao">
                 <span class="tipo">Moto</span>
                 <h2>
-                    <!-- Exiba marca e modelo da moto -->
+                    <?= htmlspecialchars($moto->getMarca()) ?>
+                    <?= htmlspecialchars($moto->getModelo()) ?>
                 </h2>
 
                 <p class="detalhe">
-                    Ano: <!-- Exiba o ano -->
+                    Ano: <?= $moto->getAno() ?>
                 </p>
                 
                 <p class="detalhe">
-                    Cilindradas: <!-- Exiba as cilindradas -->
+                    Cilindradas: <?= $moto->getCilindradas() ?>
                 </p>
                 <p class="preco">
-                    Diária: R$ <!-- Exiba a diária formatada com duas casas decimais -->
+                    Diária: R$ <?= number_format($moto->calcularDiaria(), 2, ',', '.') ?>
                 </p>
             </article>
         </section>
